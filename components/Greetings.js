@@ -15,7 +15,6 @@ const Greetings = () => {
   if (!data) return <div>Loading...</div>
 
   const { name } = data
-
   return (
     <>
       <Title className='text-7xl'>Good Afternoon, {name}</Title>
