@@ -1,14 +1,19 @@
 import Head from 'next/head'
 
-export default function Home() {
+import Greetings from '../components/Greetings'
+import Paragraph from '../components/Paragraph'
+
+export default function Index() {
   return (
     <div>
       <Head>
         <title>Weather Forecast</title>
-        <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main>Weather Forecast</main>
+      <main>
+        <Greetings />
+        <Paragraph>noway</Paragraph>
+      </main>
     </div>
   )
 }

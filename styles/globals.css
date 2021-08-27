@@ -6,7 +6,7 @@ body {
 }
 
 ::selection {
-  background-color: #FEF3C7 !important;
+  background-color: #fef3c7 !important;
 }
 
 a {
@@ -16,4 +16,8 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.font-spartan {
+  font-family: 'Spartan', sans-serif;
 }

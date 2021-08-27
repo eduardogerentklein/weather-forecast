@@ -10,6 +10,14 @@ class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head>
+          <link rel='icon' href='../../images/og-logo.svg' />
+          <link rel='alternate icon' href='../../images/og-logo.svg' />
+          <link
+            rel='mask-icon'
+            href='../../images/og-logo.svg'
+            color='#1a202c'
+          />
+
           <link rel='preconnect' href='https://fonts.googleapis.com' />
           <link
             rel='preconnect'
