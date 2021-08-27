@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "prepare": "husky install"
   },
   "dependencies": {
     "init": "^0.1.2",
@@ -19,7 +20,11 @@
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^10.3.3",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
     "postcss": "^8.3.6",
+    "prettier": "2.3.2",
     "tailwindcss": "^2.2.8"
   }
 }

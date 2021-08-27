@@ -5,12 +5,10 @@ export default function Home() {
     <div>
       <Head>
         <title>Weather Forecast</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main>
-        Teste
-      </main>
+      <main>Weather Forecast</main>
     </div>
   )
 }
