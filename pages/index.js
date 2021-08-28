@@ -11,14 +11,12 @@ export default function Index() {
         <title>Weather Forecast</title>
       </Head>
 
-      <main className='flex justify-between'>
-        <section>
+      <main className='flex justify-between w-screen'>
+        <section className='flex flex-col justify-between'>
           <Greetings />
           <CurrentTemperature />
         </section>
-        <section>
-          <RightPanel />
-        </section>
+        <RightPanel />
       </main>
     </div>
   )
