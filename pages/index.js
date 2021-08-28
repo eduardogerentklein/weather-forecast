@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 import Greetings from '../components/Greetings'
-import Paragraph from '../components/Paragraph'
+import RightPanel from '../components/RightPanel'
 
 export default function Index() {
   return (
@@ -10,9 +10,11 @@ export default function Index() {
         <title>Weather Forecast</title>
       </Head>
 
-      <main>
+      <main className='flex justify-between'>
         <Greetings />
-        <Paragraph>noway</Paragraph>
+        <RightPanel>
+          <span className='text-white'>Teste</span>
+        </RightPanel>
       </main>
     </div>
   )
