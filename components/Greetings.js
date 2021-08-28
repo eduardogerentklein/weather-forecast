@@ -1,6 +1,6 @@
 import useSWR from 'swr'
 
-import Title from './Title'
+import H1 from './H1'
 
 const fetcher = async url => {
   const res = await fetch(url)
@@ -17,7 +17,7 @@ const Greetings = () => {
   const { name } = data
   return (
     <>
-      <Title className='text-7xl'>Good Afternoon, {name}</Title>
+      <H1>Good Afternoon, {name}</H1>
     </>
   )
 }

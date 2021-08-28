@@ -18,6 +18,10 @@ a {
   box-sizing: border-box;
 }
 
+.font-roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
 .font-spartan {
   font-family: 'Spartan', sans-serif;
 }
