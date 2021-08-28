@@ -1,6 +1,7 @@
 import useSWR from 'swr'
 
-import H1 from './H1'
+import H5 from './H5'
+import Paragraph from './Paragraph'
 
 const fetcher = async url => {
   const res = await fetch(url)
@@ -16,9 +17,10 @@ const Greetings = () => {
 
   const { name } = data
   return (
-    <>
-      <H1>Good Afternoon, {name}</H1>
-    </>
+    <div className='py-20 px-20'>
+      <H5>Good Afternoon, {name}</H5>
+      <Paragraph className='text-white-75'>Have a nice day</Paragraph>
+    </div>
   )
 }
 

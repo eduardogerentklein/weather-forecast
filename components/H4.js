@@ -1,5 +1,5 @@
-const H4 = ({ children }) => (
-  <h4 className='font-spartan font-extrabold text-4xl text-blue-50'>
+const H4 = ({ children, className }) => (
+  <h4 className={`font-spartan font-extrabold text-4xl ${className}`}>
     {children}
   </h4>
 )

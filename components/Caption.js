@@ -1,5 +1,5 @@
-const Caption = ({ children }) => (
-  <p className='font-roboto font-normal text-2xl'>{children}</p>
+const Caption = ({ children, className }) => (
+  <p className={`font-roboto font-normal text-2xl ${className}`}>{children}</p>
 )
 
 export default Caption

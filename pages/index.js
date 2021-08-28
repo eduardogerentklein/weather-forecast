@@ -2,6 +2,7 @@ import Head from 'next/head'
 
 import Greetings from '../components/Greetings'
 import RightPanel from '../components/RightPanel'
+import CurrentTemperature from '../components/CurrentTemperature'
 
 export default function Index() {
   return (
@@ -11,10 +12,13 @@ export default function Index() {
       </Head>
 
       <main className='flex justify-between'>
-        <Greetings />
-        <RightPanel>
-          <span className='text-white'>Teste</span>
-        </RightPanel>
+        <section>
+          <Greetings />
+          <CurrentTemperature />
+        </section>
+        <section>
+          <RightPanel />
+        </section>
       </main>
     </div>
   )
