@@ -26,9 +26,7 @@ const BackgroundImage = (city = 'Auckland') => {
   fetcher(
     `https://api.unsplash.com/search/photos?page=1&query=${city}&w=${width}&h=${height}`
   ).then(res => {
-    console.log(res.results.map(result => result.urls.regular)[0])
     setImage(res.results.map(result => result.urls.regular)[0])
-    console.log(image)
   })
 
   const handleResize = () => {
