@@ -17,10 +17,10 @@ const Greetings = () => {
 
   const { name } = data
   return (
-    <div className='py-20 px-20'>
+    <header className='py-20 px-20'>
       <H5>Good Afternoon, {name}</H5>
       <Paragraph className='text-white-75'>Have a nice day</Paragraph>
-    </div>
+    </header>
   )
 }
 
