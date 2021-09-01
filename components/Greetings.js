@@ -17,7 +17,7 @@ const Greetings = () => {
 
   const { name } = data
   return (
-    <header className='py-20 px-20'>
+    <header className='p-10'>
       <H5>Good Afternoon, {name}</H5>
       <Paragraph className='text-white-75'>Have a nice day</Paragraph>
     </header>

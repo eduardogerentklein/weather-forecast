@@ -4,7 +4,7 @@ import Caption from './Caption'
 
 const CurrentTemperature = () => {
   return (
-    <div className='flex py-20 px-20'>
+    <div className='flex p-10'>
       <div>
         <H1 className='text-white-100 pr-10'>23º C</H1>
       </div>
