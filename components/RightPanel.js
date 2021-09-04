@@ -32,6 +32,7 @@ const RightPanel = ({ onClickGeoLocation }) => {
     timeout: 15000,
     maximumAge: 1000,
   }
+
   const handleClickCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition(
       position => {
@@ -49,12 +50,16 @@ const RightPanel = ({ onClickGeoLocation }) => {
     )
   }
 
+  const handleClickSearch = () => {
+    localStorage.setItem('city', search)
+  }
+
   return (
     <>
       <section className='bg-opacity flex flex-col justify-between bg-blue-100 w-96 h-screen'>
         <section className='flex items-center px-5 py-10'>
           <InputSearch handleSearch={handleSearch} />
-          <Button className='mx-3'>
+          <Button className='mx-3' onClick={handleClickSearch}>
             <Search size={20} className='text-white-100' />
           </Button>
           <Button onClick={handleClickCurrentLocation}>

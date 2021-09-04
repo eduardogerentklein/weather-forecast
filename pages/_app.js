@@ -1,6 +1,9 @@
 import Head from 'next/head'
+import dynamic from 'next/dynamic'
 
-import Layout from '../components/Layout.js'
+const Layout = dynamic(() => import('../components/Layout.js'), {
+  ssr: false,
+})
 
 import '../styles/globals.css'
 import '../styles/tailwind.css'

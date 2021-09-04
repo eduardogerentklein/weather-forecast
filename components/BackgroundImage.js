@@ -19,15 +19,22 @@ const fetcher = async url => {
   return json
 }
 
-const BackgroundImage = (city = 'Auckland') => {
+const BackgroundImage = ({ city = 'Auckland' }) => {
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
-  const [image, setImage] = useState('')
-  fetcher(
-    `https://api.unsplash.com/search/photos?page=1&query=${city}&w=${width}&h=${height}`
-  ).then(res => {
-    setImage(res.results.map(result => result.urls.regular)[0])
-  })
+  const [image, setImage] = useState(process.env.NEXT_PUBLIC_DEFAULT_IMAGE_URL)
+
+  const searchCity = localStorage.getItem('city')
+
+  if (searchCity === null) localStorage.setItem('city', city)
+  else if (searchCity !== city) {
+    fetcher(
+      `https://api.unsplash.com/search/photos?page=1&query=${city}&w=${width}&h=${height}`
+    ).then(res => {
+      const imgUrl = res.results.map(result => result.urls.regular)[0]
+      setImage(imgUrl)
+    })
+  }
 
   const handleResize = () => {
     const { width, height } = getWindowDimensions()
