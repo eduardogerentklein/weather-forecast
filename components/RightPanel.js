@@ -9,15 +9,24 @@ import {
   MapPin,
 } from 'react-feather'
 
+import { useState } from 'react'
+
 import ForecastDescription from '../components/ForecastDescription'
 import Subtitle from '../components/Subtitle'
 import Footer from '../components/Footer'
 import H4 from '../components/H4'
 import H6 from '../components/H6'
 import Button from './Button'
-import Input from './Input'
+import InputSearch from './InputSearch'
 
 const RightPanel = ({ onClickGeoLocation }) => {
+  const [weather, setWeather] = useState({})
+  const [search, setSearch] = useState('')
+
+  const handleSearch = inputValue => {
+    setSearch(inputValue)
+  }
+
   const positionOptions = {
     enableHighAccuracy: true,
     timeout: 15000,
@@ -42,9 +51,9 @@ const RightPanel = ({ onClickGeoLocation }) => {
 
   return (
     <>
-      <section className='right-panel flex flex-col justify-between bg-blue-100 w-96 h-screen'>
+      <section className='bg-opacity flex flex-col justify-between bg-blue-100 w-96 h-screen'>
         <section className='flex items-center px-5 py-10'>
-          <Input />
+          <InputSearch handleSearch={handleSearch} />
           <Button className='mx-3'>
             <Search size={20} className='text-white-100' />
           </Button>
@@ -97,16 +106,6 @@ const RightPanel = ({ onClickGeoLocation }) => {
             />
           </a>
         </Footer>
-        <style jsx>
-          {`
-            .right-panel {
-              box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-              border-radius: 20px 0px 0px 20px;
-              opacity: 0.95;
-              filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.25));
-            }
-          `}
-        </style>
       </section>
     </>
   )
