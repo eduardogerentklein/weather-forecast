@@ -8,7 +8,6 @@ import {
   Search,
   MapPin,
 } from 'react-feather'
-import Link from 'next/link'
 
 import ForecastDescription from '../components/ForecastDescription'
 import Subtitle from '../components/Subtitle'

@@ -10,11 +10,11 @@ class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head>
-          <link rel='icon' href='../../images/og-logo.svg' />
-          <link rel='alternate icon' href='../../images/og-logo.svg' />
+          <link rel='icon' href='../../images/og-logo.png' />
+          <link rel='alternate icon' href='../../images/og-logo.png' />
           <link
             rel='mask-icon'
-            href='../../images/og-logo.svg'
+            href='../../images/og-logo.png'
             color='#1a202c'
           />
 
