@@ -79,18 +79,24 @@ const RightPanel = ({ onClickGeoLocation }) => {
           <ForecastDescription />
         </section>
         <Footer>
-          <Link href='https://www.github.com/eduardogerentklein'>
+          <a
+            target='_blank'
+            rel='noopener noreferrer'
+            href='https://www.github.com/eduardogerentklein'>
             <GitHub
               className='cursor-pointer text-blue-75 hover:text-blue-25'
               size={20}
             />
-          </Link>
-          <Link href='https://www.linkedin.com/in/eduardoklein/'>
+          </a>
+          <a
+            target='_blank'
+            rel='noopener noreferrer'
+            href='https://www.linkedin.com/in/eduardoklein/'>
             <Linkedin
               className='cursor-pointer text-blue-75 hover:text-blue-25'
               size={20}
             />
-          </Link>
+          </a>
         </Footer>
         <style jsx>
           {`
