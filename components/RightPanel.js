@@ -10,14 +10,12 @@ import {
 } from 'react-feather'
 
 import { useState } from 'react'
-
 import dynamic from 'next/dynamic'
 
 const BackgroundImage = dynamic(() => import('./BackgroundImage'), {
   ssr: false,
   loading: () => <p>Loading...</p>,
 })
-
 import ForecastDescription from '../components/ForecastDescription'
 import Subtitle from '../components/Subtitle'
 import Footer from '../components/Footer'
