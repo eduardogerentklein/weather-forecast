@@ -11,6 +11,13 @@ import {
 
 import { useState } from 'react'
 
+import dynamic from 'next/dynamic'
+
+const BackgroundImage = dynamic(() => import('./BackgroundImage'), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+})
+
 import ForecastDescription from '../components/ForecastDescription'
 import Subtitle from '../components/Subtitle'
 import Footer from '../components/Footer'
@@ -22,6 +29,7 @@ import InputSearch from './InputSearch'
 const RightPanel = ({ onClickGeoLocation }) => {
   const [weather, setWeather] = useState({})
   const [search, setSearch] = useState('')
+  const [city, setCity] = useState('Auckland')
 
   const handleSearch = inputValue => {
     setSearch(inputValue)
@@ -51,7 +59,7 @@ const RightPanel = ({ onClickGeoLocation }) => {
   }
 
   const handleClickSearch = () => {
-    localStorage.setItem('city', search)
+    setCity(search)
   }
 
   return (
@@ -67,7 +75,7 @@ const RightPanel = ({ onClickGeoLocation }) => {
           </Button>
         </section>
         <section className='flex flex-col items-center'>
-          <H4 className='text-blue-50'>Auckland</H4>
+          <H4 className='text-blue-50'>{city}</H4>
           <H6 className='text-blue-25'>NZ</H6>
         </section>
         <section className='flex flex-col items-start px-5'>
@@ -112,6 +120,7 @@ const RightPanel = ({ onClickGeoLocation }) => {
           </a>
         </Footer>
       </section>
+      <BackgroundImage city={city} />
     </>
   )
 }

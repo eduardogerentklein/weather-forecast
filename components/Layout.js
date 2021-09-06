@@ -1,11 +1,4 @@
-import dynamic from 'next/dynamic'
-
-const BackgroundImage = dynamic(() => import('./BackgroundImage'), {
-  ssr: false,
-})
-
 const Layout = ({ children }) => {
-  const city = localStorage.getItem('city') || 'Auckland'
   return (
     <>
       <div className='container'>
@@ -21,7 +14,6 @@ const Layout = ({ children }) => {
           `}
         </style>
       </div>
-      <BackgroundImage city={city} />
     </>
   )
 }
