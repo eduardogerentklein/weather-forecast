@@ -24,8 +24,7 @@ import H6 from '../components/H6'
 import Button from './Button'
 import InputSearch from './InputSearch'
 
-const RightPanel = ({ onClickGeoLocation }) => {
-  const [weather, setWeather] = useState({})
+const RightPanel = ({ onClickGeoLocation, onClickSearch, weather }) => {
   const [search, setSearch] = useState('')
   const [city, setCity] = useState('Auckland')
 
@@ -58,6 +57,7 @@ const RightPanel = ({ onClickGeoLocation }) => {
 
   const handleClickSearch = () => {
     setCity(search)
+    onClickSearch(search)
   }
 
   return (
@@ -65,7 +65,10 @@ const RightPanel = ({ onClickGeoLocation }) => {
       <section className='bg-opacity flex flex-col justify-between bg-blue-100 w-96 h-screen'>
         <section className='flex items-center px-5 py-10'>
           <InputSearch handleSearch={handleSearch} />
-          <Button className='mx-3' onClick={handleClickSearch}>
+          <Button
+            className='mx-3'
+            onClick={handleClickSearch}
+            disabled={search === ''}>
             <Search size={20} className='text-white-100' />
           </Button>
           <Button onClick={handleClickCurrentLocation}>
@@ -73,29 +76,37 @@ const RightPanel = ({ onClickGeoLocation }) => {
           </Button>
         </section>
         <section className='flex flex-col items-center'>
-          <H4 className='text-blue-50'>{city}</H4>
-          <H6 className='text-blue-25'>NZ</H6>
+          <H4 className='text-blue-50'>{weather.name}</H4>
+          <H6 className='text-blue-25'>{weather.sys.country}</H6>
         </section>
         <section className='flex flex-col items-start px-5'>
           <div className='flex py-4'>
             <Thermometer size={20} className='text-white-100' />
-            <Subtitle className='text-white-100 px-5'>Current: 23º C</Subtitle>
+            <Subtitle className='text-white-100 px-5'>
+              Current: {parseInt(weather.main.temp)}º C
+            </Subtitle>
           </div>
           <div className='flex py-4'>
             <TrendingUp size={20} className='text-white-100' />
-            <Subtitle className='text-white-100 px-5'>High: 29º C</Subtitle>
+            <Subtitle className='text-white-100 px-5'>
+              High: {parseInt(weather.main.temp_max)}º C
+            </Subtitle>
           </div>
           <div className='flex py-4'>
             <TrendingDown size={20} className='text-white-100' />
-            <Subtitle className='text-white-100 px-5'>Low: 20º C</Subtitle>
+            <Subtitle className='text-white-100 px-5'>
+              Low: {parseInt(weather.main.temp_min)}º C
+            </Subtitle>
           </div>
           <div className='flex py-4'>
             <Droplet size={20} className='text-white-100' />
-            <Subtitle className='text-white-100 px-5'>Humidity: 62%</Subtitle>
+            <Subtitle className='text-white-100 px-5'>
+              Humidity: {parseInt(weather.main.humidity)}%
+            </Subtitle>
           </div>
         </section>
         <section>
-          <ForecastDescription />
+          <ForecastDescription description={weather.weather[0].description} />
         </section>
         <Footer>
           <a
