@@ -2,10 +2,10 @@ import { Cloud } from 'react-feather'
 
 import Caption from './Caption'
 
-const ForecastDescription = () => (
+const ForecastDescription = ({ description }) => (
   <div className='flex flex-col items-center'>
     <Cloud size={36} className='text-white-100' />
-    <Caption className='text-white-100'>Overcast clouds</Caption>
+    <Caption className='text-white-100'>{description}</Caption>
   </div>
 )
 
