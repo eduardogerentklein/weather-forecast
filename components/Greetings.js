@@ -12,8 +12,8 @@ const fetcher = async url => {
 const Greetings = () => {
   const { data, error } = useSWR(`http://localhost:3000/api/user`, fetcher)
 
-  if (error) return <div>Failed to load</div>
-  if (!data) return <div>Loading...</div>
+  if (error) return <div className='text-white-100'>Failed to load</div>
+  if (!data) return <div className='text-white-100'>Loading...</div>
 
   const { name } = data
   return (

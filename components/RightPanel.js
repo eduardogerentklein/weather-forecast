@@ -9,20 +9,38 @@ import {
   MapPin,
 } from 'react-feather'
 
+import { useState } from 'react'
+
+import dynamic from 'next/dynamic'
+
+const BackgroundImage = dynamic(() => import('./BackgroundImage'), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+})
+
 import ForecastDescription from '../components/ForecastDescription'
 import Subtitle from '../components/Subtitle'
 import Footer from '../components/Footer'
 import H4 from '../components/H4'
 import H6 from '../components/H6'
 import Button from './Button'
-import Input from './Input'
+import InputSearch from './InputSearch'
 
 const RightPanel = ({ onClickGeoLocation }) => {
+  const [weather, setWeather] = useState({})
+  const [search, setSearch] = useState('')
+  const [city, setCity] = useState('Auckland')
+
+  const handleSearch = inputValue => {
+    setSearch(inputValue)
+  }
+
   const positionOptions = {
     enableHighAccuracy: true,
     timeout: 15000,
     maximumAge: 1000,
   }
+
   const handleClickCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition(
       position => {
@@ -40,12 +58,16 @@ const RightPanel = ({ onClickGeoLocation }) => {
     )
   }
 
+  const handleClickSearch = () => {
+    setCity(search)
+  }
+
   return (
     <>
-      <section className='right-panel flex flex-col justify-between bg-blue-100 w-96 h-screen'>
+      <section className='bg-opacity flex flex-col justify-between bg-blue-100 w-96 h-screen'>
         <section className='flex items-center px-5 py-10'>
-          <Input />
-          <Button className='mx-3'>
+          <InputSearch handleSearch={handleSearch} />
+          <Button className='mx-3' onClick={handleClickSearch}>
             <Search size={20} className='text-white-100' />
           </Button>
           <Button onClick={handleClickCurrentLocation}>
@@ -53,7 +75,7 @@ const RightPanel = ({ onClickGeoLocation }) => {
           </Button>
         </section>
         <section className='flex flex-col items-center'>
-          <H4 className='text-blue-50'>Auckland</H4>
+          <H4 className='text-blue-50'>{city}</H4>
           <H6 className='text-blue-25'>NZ</H6>
         </section>
         <section className='flex flex-col items-start px-5'>
@@ -97,17 +119,8 @@ const RightPanel = ({ onClickGeoLocation }) => {
             />
           </a>
         </Footer>
-        <style jsx>
-          {`
-            .right-panel {
-              box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-              border-radius: 20px 0px 0px 20px;
-              opacity: 0.95;
-              filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.25));
-            }
-          `}
-        </style>
       </section>
+      <BackgroundImage city={city} />
     </>
   )
 }

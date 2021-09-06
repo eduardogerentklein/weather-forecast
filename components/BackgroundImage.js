@@ -19,15 +19,26 @@ const fetcher = async url => {
   return json
 }
 
-const BackgroundImage = (city = 'Auckland') => {
+const BackgroundImage = ({ city }) => {
+  const [error, setError] = useState(false)
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
-  const [image, setImage] = useState('')
-  fetcher(
-    `https://api.unsplash.com/search/photos?page=1&query=${city}&w=${width}&h=${height}`
-  ).then(res => {
-    setImage(res.results.map(result => result.urls.regular)[0])
-  })
+  const [image, setImage] = useState(process.env.NEXT_PUBLIC_DEFAULT_IMAGE_URL)
+
+  useEffect(() => {
+    fetcher(
+      `${process.env.NEXT_PUBLIC_UNSPLASH_API_URL}?page=1&query=${city}&w=${width}&h=${height}`
+    ).then(res => {
+      const imgUrl = res.results.map(result => result.urls.regular)[0]
+
+      if (res.total === 0) {
+        setError(true)
+        setImage(
+          'https://images.unsplash.com/photo-1584824486509-112e4181ff6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNTY2NzZ8MHwxfHNlYXJjaHwxfHw0MDR8ZW58MHx8fHwxNjMwOTQxNjMy&ixlib=rb-1.2.1&q=80&w=1080'
+        )
+      } else setImage(imgUrl)
+    })
+  }, [city])
 
   const handleResize = () => {
     const { width, height } = getWindowDimensions()
@@ -51,12 +62,13 @@ const BackgroundImage = (city = 'Auckland') => {
     if (image) {
       return (
         <div className='box'>
-          <Image src={`${image}`} width={width} height={height} />
+          {error && <p>404 City not found!</p>}
+          <Image src={image} width={width} height={height} />
           <style jsx>
             {`
               .box {
                 position: fixed;
-                z-index: 0;
+                z-index: -1;
                 top: 0;
               }
             `}
