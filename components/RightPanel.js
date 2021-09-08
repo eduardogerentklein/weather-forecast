@@ -77,7 +77,7 @@ const RightPanel = ({ onClickGeoLocation, onClickSearch, weather }) => {
         </section>
         <section className='flex flex-col items-center'>
           <H4 className='text-blue-50'>{weather.name}</H4>
-          <H6 className='text-blue-25'>{weather.sys.country}</H6>
+          <H6 className='text-blue-25 uppercase'>{weather.sys.country}</H6>
         </section>
         <section className='flex flex-col items-start px-5'>
           <div className='flex py-4'>

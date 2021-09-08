@@ -44,12 +44,14 @@ export default function Index() {
   }
 
   const setData = source => {
-    const { weather, sys, main, name } = source
+    const { weather, sys, main, name, timezone, dt } = source
     setCurrentWeather({
       name,
       weather,
       sys,
       main,
+      timezone,
+      dt,
     })
   }
 
