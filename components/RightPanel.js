@@ -6,7 +6,7 @@ import {
   Linkedin,
   GitHub,
   Search,
-  MapPin,
+  MapPin
 } from 'react-feather'
 
 import { useState } from 'react'
@@ -14,7 +14,7 @@ import dynamic from 'next/dynamic'
 
 const BackgroundImage = dynamic(() => import('./BackgroundImage'), {
   ssr: false,
-  loading: () => <p>Loading...</p>,
+  loading: () => <p>Loading...</p>
 })
 import ForecastDescription from '../components/ForecastDescription'
 import Subtitle from '../components/Subtitle'
@@ -35,7 +35,7 @@ const RightPanel = ({ onClickGeoLocation, onClickSearch, weather }) => {
   const positionOptions = {
     enableHighAccuracy: true,
     timeout: 15000,
-    maximumAge: 1000,
+    maximumAge: 1000
   }
 
   const handleClickCurrentLocation = () => {
@@ -106,7 +106,7 @@ const RightPanel = ({ onClickGeoLocation, onClickSearch, weather }) => {
           </div>
         </section>
         <section>
-          <ForecastDescription description={weather.weather[0].description} />
+          <ForecastDescription weather={weather} />
         </section>
         <Footer>
           <a
