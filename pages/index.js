@@ -10,7 +10,7 @@ const fetcher = async params => {
   const apiWeatherUrl = process.env.NEXT_PUBLIC_OPEN_WEATHER_API_URL
   const apiWeatherKey = process.env.NEXT_PUBLIC_OPEN_WEATHER_API_KEY
   const res = await fetch(`${apiWeatherUrl}${params}&appid=${apiWeatherKey}`, {
-    method: 'GET',
+    method: 'GET'
   })
   const json = await res.json()
   return json
@@ -30,7 +30,7 @@ export default function Index() {
   const onClickGeoLocation = ({
     latitude = '',
     longitude = '',
-    error = null,
+    error = null
   }) => {
     if (error) {
       setError(error)
@@ -51,7 +51,7 @@ export default function Index() {
       sys,
       main,
       timezone,
-      dt,
+      dt
     })
   }
 
@@ -75,7 +75,7 @@ export default function Index() {
   return (
     <div>
       <Head>
-        <title>Weather Forecast</title>
+        <title>Weather Forecast - {currentWeather.name}</title>
       </Head>
 
       <main className='flex justify-between w-screen'>
