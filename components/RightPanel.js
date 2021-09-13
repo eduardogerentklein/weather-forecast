@@ -9,7 +9,7 @@ import {
   MapPin
 } from 'react-feather'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 
 const BackgroundImage = dynamic(() => import('./BackgroundImage'), {
@@ -22,7 +22,7 @@ import Footer from '../components/Footer'
 import H4 from '../components/H4'
 import H6 from '../components/H6'
 import Button from './Button'
-import InputSearch from './InputSearch'
+import Input from './Input'
 
 const RightPanel = ({ onClickGeoLocation, onClickSearch, weather }) => {
   const [search, setSearch] = useState('')
@@ -60,18 +60,29 @@ const RightPanel = ({ onClickGeoLocation, onClickSearch, weather }) => {
     onClickSearch(search)
   }
 
+  useEffect(() => {
+    setCity(weather.name)
+  }, [weather])
+
   return (
     <>
       <section className='bg-opacity flex flex-col justify-between bg-blue-100 w-96 h-screen'>
         <section className='flex items-center px-5 py-10'>
-          <InputSearch handleSearch={handleSearch} />
+          <Input
+            handleChange={handleSearch}
+            type='search'
+            placeholder='Search a city'
+            className='border-b-2 border-white-75 text-black-25'
+          />
           <Button
-            className='mx-3'
+            className='py-1 px-3 mx-3 bg-hot-pink-100 hover:bg-pink-100'
             onClick={handleClickSearch}
             disabled={search === ''}>
             <Search size={20} className='text-white-100' />
           </Button>
-          <Button onClick={handleClickCurrentLocation}>
+          <Button
+            onClick={handleClickCurrentLocation}
+            className='py-1 px-3 bg-hot-pink-100 hover:bg-pink-100'>
             <MapPin size={20} className='text-white-100' />
           </Button>
         </section>
