@@ -1,4 +1,4 @@
-const InputSearch = ({ handleSearch }) => {
+const Input = ({ handleSearch, type, placeholder, className = '' }) => {
   const onChange = e => {
     handleSearch(e.target.value)
   }
@@ -6,12 +6,10 @@ const InputSearch = ({ handleSearch }) => {
   return (
     <>
       <input
-        id='inputSearch'
-        type='search'
-        placeholder='Search a city'
+        type={type}
+        placeholder={placeholder}
         autoComplete='off'
-        className='w-96 text-3xl text-black-25 bg-transparent border-b-2 border-white-75'
-        type='text'
+        className={`text-3xl text-black-25 bg-transparent w-96 ${className}`}
         onChange={onChange}
       />
       <style jsx>
@@ -29,4 +27,4 @@ const InputSearch = ({ handleSearch }) => {
   )
 }
 
-export default InputSearch
+export default Input

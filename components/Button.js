@@ -2,7 +2,7 @@ const Button = ({ children, onClick, className, disabled }) => (
   <>
     <button
       disabled={disabled}
-      className={`py-1 rounded px-3 bg-hot-pink-100 hover:bg-pink-100 ${className}`}
+      className={`rounded py-1 px-3 ${className}`}
       onClick={onClick}>
       {children}
     </button>

@@ -5,6 +5,8 @@ import Head from 'next/head'
 import Greetings from '../components/Greetings'
 import RightPanel from '../components/RightPanel'
 import CurrentTemperature from '../components/CurrentTemperature'
+import Modal from '../components/Modal'
+import Input from '../components/Input'
 
 const fetcher = async params => {
   const apiWeatherUrl = process.env.NEXT_PUBLIC_OPEN_WEATHER_API_URL
@@ -88,6 +90,15 @@ export default function Index() {
           onClickGeoLocation={onClickGeoLocation}
           onClickSearch={onClickSearch}
         />
+        <Modal
+          title='How do you want to be called?'
+          description='Your name will be stored in your browser, and every time that you open it, your name will be displayed automatically!'>
+          <Input
+            type='text'
+            placeholder='Ex: John Doe'
+            className='border-b-2 border-black-75 p-2'
+          />
+        </Modal>
       </main>
     </div>
   )
