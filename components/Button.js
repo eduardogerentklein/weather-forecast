@@ -2,7 +2,7 @@ const Button = ({ children, onClick, className, disabled }) => (
   <>
     <button
       disabled={disabled}
-      className={`rounded py-1 px-3 ${className}`}
+      className={`rounded ${className}`}
       onClick={onClick}>
       {children}
     </button>

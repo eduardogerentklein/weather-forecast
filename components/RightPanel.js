@@ -69,20 +69,20 @@ const RightPanel = ({ onClickGeoLocation, onClickSearch, weather }) => {
       <section className='bg-opacity flex flex-col justify-between bg-blue-100 w-96 h-screen'>
         <section className='flex items-center px-5 py-10'>
           <Input
-            handleSearch={handleSearch}
+            handleChange={handleSearch}
             type='search'
             placeholder='Search a city'
-            className='border-b-2 border-white-75'
+            className='border-b-2 border-white-75 text-black-25'
           />
           <Button
-            className='mx-3 bg-hot-pink-100 hover:bg-pink-100'
+            className='py-1 px-3 mx-3 bg-hot-pink-100 hover:bg-pink-100'
             onClick={handleClickSearch}
             disabled={search === ''}>
             <Search size={20} className='text-white-100' />
           </Button>
           <Button
             onClick={handleClickCurrentLocation}
-            className='bg-hot-pink-100 hover:bg-pink-100'>
+            className='py-1 px-3 bg-hot-pink-100 hover:bg-pink-100'>
             <MapPin size={20} className='text-white-100' />
           </Button>
         </section>

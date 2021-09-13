@@ -1,6 +1,6 @@
-const Input = ({ handleSearch, type, placeholder, className = '' }) => {
+const Input = ({ handleChange, type, placeholder, className = '' }) => {
   const onChange = e => {
-    handleSearch(e.target.value)
+    handleChange(e.target.value)
   }
 
   return (
@@ -9,7 +9,7 @@ const Input = ({ handleSearch, type, placeholder, className = '' }) => {
         type={type}
         placeholder={placeholder}
         autoComplete='off'
-        className={`text-3xl text-black-25 bg-transparent w-96 ${className}`}
+        className={`text-3xl bg-transparent w-96 ${className}`}
         onChange={onChange}
       />
       <style jsx>
