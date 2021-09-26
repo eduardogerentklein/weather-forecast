@@ -10,6 +10,7 @@ import {
 } from 'react-feather'
 
 import { useEffect, useState } from 'react'
+import { isMobile } from 'react-device-detect'
 import dynamic from 'next/dynamic'
 
 const BackgroundImage = dynamic(() => import('./BackgroundImage'), {
@@ -64,9 +65,12 @@ const RightPanel = ({ onClickGeoLocation, onClickSearch, weather }) => {
     setCity(weather.name)
   }, [weather])
 
+  const mobileClass = isMobile ? 'space-y-10' : ''
+
   return (
     <>
-      <section className='bg-opacity flex flex-col md:justify-between bg-blue-100 w-screen md:w-96 h-screen rounded-none md:rounded-l-3xl'>
+      <section
+        className={`bg-opacity flex flex-col md:justify-between bg-blue-100 w-screen md:w-96 h-screen rounded-none md:rounded-l-3xl ${mobileClass}`}>
         <section className='flex items-center px-5 py-10'>
           <Input
             handleChange={handleSearch}

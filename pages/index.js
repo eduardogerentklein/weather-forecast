@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-
+import { isMobile } from 'react-device-detect'
 import Head from 'next/head'
 
 import Greetings from '../components/Greetings'
@@ -131,18 +131,20 @@ export default function Index() {
           onClickGeoLocation={onClickGeoLocation}
           onClickSearch={onClickSearch}
         />
-        <Modal
-          show={showModal}
-          title='How do you want to be called?'
-          description='Your name will be stored in your browser, and every time that you open it, your name will be displayed automatically!'
-          actionButtons={actionButtons}>
-          <Input
-            type='text'
-            placeholder='Ex: John Doe'
-            className='border-b-2 border-black-75 text-black-100 p-1'
-            handleChange={handleUserChange}
-          />
-        </Modal>
+        {!isMobile && (
+          <Modal
+            show={showModal}
+            title='How do you want to be called?'
+            description='Your name will be stored in your browser, and every time that you open it, your name will be displayed automatically!'
+            actionButtons={actionButtons}>
+            <Input
+              type='text'
+              placeholder='Ex: John Doe'
+              className='border-b-2 border-black-75 text-black-100 p-1'
+              handleChange={handleUserChange}
+            />
+          </Modal>
+        )}
       </main>
     </div>
   )
