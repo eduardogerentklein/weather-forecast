@@ -66,7 +66,7 @@ const RightPanel = ({ onClickGeoLocation, onClickSearch, weather }) => {
 
   return (
     <>
-      <section className='bg-opacity flex flex-col justify-between bg-blue-100 w-96 h-screen'>
+      <section className='bg-opacity flex flex-col md:justify-between bg-blue-100 w-screen md:w-96 h-screen rounded-none md:rounded-l-3xl'>
         <section className='flex items-center px-5 py-10'>
           <Input
             handleChange={handleSearch}

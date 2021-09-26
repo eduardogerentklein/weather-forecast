@@ -122,7 +122,7 @@ export default function Index() {
       </Head>
 
       <main className='flex justify-between w-screen'>
-        <section className='flex flex-col justify-between'>
+        <section className='hidden md:flex flex-col justify-between'>
           <Greetings userName={userName} showUserName={showUserName} />
           <CurrentTemperature weather={currentWeather} />
         </section>

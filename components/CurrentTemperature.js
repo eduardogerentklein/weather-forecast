@@ -5,7 +5,7 @@ import H1 from './H1'
 import H4 from './H4'
 import Caption from './Caption'
 
-const CurrentTemperature = ({ weather }) => {
+const CurrentTemperature = ({ weather, className = '' }) => {
   const [date, setDate] = useState('')
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const CurrentTemperature = ({ weather }) => {
   }, [weather])
 
   return (
-    <div className='flex p-10'>
+    <div className={`flex p-10 ${className}`}>
       <div>
         <H1 className='text-white-100 pr-10'>
           {parseInt(weather.main.temp)}º C
