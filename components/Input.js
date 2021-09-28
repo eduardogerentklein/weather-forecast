@@ -20,6 +20,15 @@ const Input = ({ handleChange, type, placeholder, className = '' }) => {
 
           input:focus {
             outline: none;
+            -webkit-text-stroke-width: none !important;
+          }
+
+          input {
+            border-radius: 0;
+          }
+
+          input[type='search'] {
+            -webkit-appearance: none;
           }
         `}
       </style>
