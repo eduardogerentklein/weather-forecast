@@ -1,6 +1,16 @@
-const Input = ({ handleChange, type, placeholder, className = '' }) => {
+const Input = ({
+  handleChange,
+  handleKeyPress,
+  type,
+  placeholder,
+  className = ''
+}) => {
   const onChange = e => {
     handleChange(e.target.value)
+  }
+
+  const onKeyPress = e => {
+    handleKeyPress(e)
   }
 
   return (
@@ -11,6 +21,7 @@ const Input = ({ handleChange, type, placeholder, className = '' }) => {
         autoComplete='off'
         className={`text-3xl bg-transparent w-96 ${className}`}
         onChange={onChange}
+        onKeyPress={onKeyPress}
       />
       <style jsx>
         {`

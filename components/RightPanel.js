@@ -25,7 +25,12 @@ import H6 from '../components/H6'
 import Button from './Button'
 import Input from './Input'
 
-const RightPanel = ({ onClickGeoLocation, onClickSearch, weather }) => {
+const RightPanel = ({
+  onClickGeoLocation,
+  onClickSearch,
+  onKeyPress,
+  weather
+}) => {
   const [search, setSearch] = useState('')
   const [city, setCity] = useState('Auckland')
 
@@ -61,6 +66,10 @@ const RightPanel = ({ onClickGeoLocation, onClickSearch, weather }) => {
     onClickSearch(search)
   }
 
+  const handleKeyPress = e => {
+    onKeyPress(e)
+  }
+
   useEffect(() => {
     setCity(weather.name)
   }, [weather])
@@ -77,6 +86,7 @@ const RightPanel = ({ onClickGeoLocation, onClickSearch, weather }) => {
             type='search'
             placeholder='Search a city'
             className='border-b-2 border-white-75 text-black-25'
+            handleKeyPress={handleKeyPress}
           />
           <Button
             className='py-1 px-3 mx-3 bg-hot-pink-100 hover:bg-pink-100'

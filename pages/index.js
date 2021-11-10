@@ -26,6 +26,7 @@ export default function Index() {
   const [showModal, setShowModal] = useState(false)
   const [userName, setUserName] = useState('')
   const [showUserName, setShowUserName] = useState(false)
+
   const citySearch = city => {
     const queryString = `?q=${city}&lang=en&units=metric`
     fetcher(queryString).then(response => {
@@ -51,6 +52,13 @@ export default function Index() {
 
   const onClickSearch = city => {
     citySearch(city)
+  }
+
+  const handleEnter = e => {
+    const search = e.target.value
+    if (e.key === 'Enter' && search) {
+      citySearch(search)
+    }
   }
 
   const setData = source => {
@@ -130,6 +138,7 @@ export default function Index() {
           weather={currentWeather}
           onClickGeoLocation={onClickGeoLocation}
           onClickSearch={onClickSearch}
+          onKeyPress={handleEnter}
         />
         {!isMobile && (
           <Modal
