@@ -3,9 +3,9 @@
 This project allows you to find the current weather forecast for any city around the world. It also displays an image from the city.
 
 <p>
-  <img alt="Residence registration page" src="./resources/demo/Weather-Forecast.jpg" width="600" />
+  <img alt="Weather forecast page" src="./resources/demo/Weather-Forecast.jpg" width="600" />
   <br />
-  <span>Made using the collaborative interface design tool Figma</span>
+  <span>Project mockup - Made with <a href="https://www.figma.com" rel="noreferrer noopener" title="Project mockup link">Figma</a>.</span>
 </p>
 
 ## Dependencies
