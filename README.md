@@ -1,6 +1,6 @@
 ## About
 
-This project allows you to find the current weather forecast for any city around the world. It also displays an image from the city.
+This project allows you to find the current weather forecast in any city around the world. It also displays an image from the city.
 
 <p>
   <img alt="Weather forecast page" src="./resources/demo/Weather-Forecast.jpg" width="600" />
