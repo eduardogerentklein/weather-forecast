@@ -17,7 +17,7 @@ This project allows you to find the current weather forecast in any city around 
 - [React Feather](https://github.com/feathericons/react-feather) - React components for [Feather icons](https://feathericons.com/).
 - [date-fns](https://date-fns.org/) - Format and manipulate dates with JavaScript.
 - [TailwindCSS](https://tailwindcss.com/) - CSS Framework to style the website.
-- [Husky](https://typicode.github.io/husky/#/) - Git hooks, lint commit and 
+- [Husky](https://typicode.github.io/husky/#/) - Modern native git hooks made easy
 
 ## Getting Started
 
